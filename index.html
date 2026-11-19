@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#385848">
+<meta name="description" content="Guide autonome de révision 3PDG260 : résolution de problème, enquête littéraire et démarche d'investigation, activités interactives et rétroactions.">
+<title>Famille 2a — Problème, enquête et investigation | 3PDG260</title>
+<style>
+:root{--fond:#F6F7F2;--carte:#fff;--texte:#25342B;--texte2:#4E6254;--bordure:#DCE3D9;--encre:#385848;--inter:#526F55;--inter-f:#EFF3E9;--ok:#34694B;--nok:#91483B;--proc:#406D59;--proc-f:#ECF3EB;--strat:#80634A;--strat-f:#F4EFE7;--rais:#426F68;--rais-f:#EAF3EF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fond);color:var(--texte);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;font-size:17px;line-height:1.65}
+a{color:var(--encre)}
+:focus-visible{outline:3px solid var(--inter);outline-offset:2px}
+.saut{position:absolute;left:-999px;top:0;background:var(--encre);color:#fff;padding:.6rem 1rem;z-index:50}
+.saut:focus{left:1rem}
+.mise{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+nav.menu{background:linear-gradient(165deg,#385848 0%,#28483A 100%);color:#fff;padding:1.6rem 1rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+nav.menu .titre-guide{font-size:.85rem;letter-spacing:.04em;opacity:.85;margin:0 0 .3rem}
+nav.menu h2{font-size:1.15rem;margin:0 0 1.2rem;color:#fff;line-height:1.3}
+nav.menu ol{list-style:none;padding:0;margin:0}
+nav.menu li a{display:block;color:#fff;text-decoration:none;padding:.5rem .7rem;border-radius:8px;font-size:.95rem;border-left:3px solid transparent}
+nav.menu li a:hover{background:rgba(255,255,255,.1)}
+nav.menu li a.actif{background:rgba(255,255,255,.16);border-left-color:#fff}
+nav.menu .legende-menu{margin-top:1.5rem;font-size:.82rem;opacity:.95;border-top:1px solid rgba(255,255,255,.25);padding-top:1rem}
+nav.menu .legende-menu div{margin:.45rem 0}
+main{padding:2.3rem clamp(1rem,4vw,3.5rem) 4rem;max-width:1100px;width:100%;min-width:0}
+section{padding-top:1.5rem;margin-bottom:3rem;border-bottom:1px solid var(--bordure);scroll-margin-top:1rem}
+section:last-of-type{border-bottom:0}
+h1{font-size:2rem;color:var(--encre);line-height:1.25;margin:.5rem 0 1rem}
+h2{font-size:1.6rem;color:var(--encre);margin:0 0 1rem;line-height:1.3}
+h3{font-size:1.2rem;color:var(--encre);margin:1.65rem 0 .7rem}
+h4{font-size:1.03rem;margin:1rem 0 .4rem}
+.chapeau{font-size:1.1rem;color:var(--texte2)}
+.carte{background:var(--carte);border:1px solid var(--bordure);border-radius:14px;padding:1.1rem 1.3rem;margin:1rem 0;box-shadow:0 4px 20px rgba(35,56,44,.035)}
+.grille3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.fam{border-radius:12px;padding:1rem 1.2rem;border:1px solid;min-width:0}
+.fam h4{margin-top:0}
+.fam.p{background:var(--proc-f);border-color:var(--proc)}.fam.p h4{color:var(--proc)}
+.fam.s{background:var(--strat-f);border-color:var(--strat)}.fam.s h4{color:var(--strat)}
+.fam.r{background:var(--rais-f);border-color:var(--rais)}.fam.r h4{color:var(--rais)}
+.etiq{display:inline-block;font-size:.8rem;font-weight:700;padding:.12rem .55rem;border-radius:999px;border:1px solid}
+.etiq.p{color:var(--proc);border-color:var(--proc);background:var(--proc-f)}
+.etiq.s{color:var(--strat);border-color:var(--strat);background:var(--strat-f)}
+.etiq.r{color:var(--rais);border-color:var(--rais);background:var(--rais-f)}
+.encadre{border-left:5px solid;border-radius:0;padding:.9rem 1.2rem;margin:1.2rem 0;background:var(--carte)}
+.encadre .tete{font-weight:700;margin-bottom:.3rem}
+.encadre.vigil{border-color:var(--nok)}.encadre.vigil .tete{color:var(--nok)}
+.encadre.garder{border-color:var(--ok)}.encadre.garder .tete{color:var(--ok)}
+.encadre.cua{border-color:var(--encre)}.encadre.cua .tete{color:var(--encre)}
+.activite{background:var(--inter-f);border:1px solid #B5C9B7;border-radius:14px;padding:1.2rem 1.4rem;margin:1.8rem 0}
+.activite>.tete{color:var(--inter);font-weight:750;font-size:1.1rem;margin-bottom:.4rem}
+.activite .consigne{margin-top:0}
+.defile{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin:1rem 0;background:var(--carte);font-size:.95rem}
+th,td{border:1px solid var(--bordure);padding:.6rem .7rem;text-align:left;vertical-align:top}
+thead th{background:var(--encre);color:#fff}tbody th{background:#F2F5EF}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--carte);border:1px solid var(--inter);color:var(--inter);border-radius:8px;padding:.47rem .9rem;margin:.2rem .3rem .2rem 0}
+.btn:hover{background:#E8EFE7}.btn.plein{background:var(--inter);color:#fff}
+.item{background:var(--carte);border:1px solid var(--bordure);border-radius:10px;padding:.8rem 1rem;margin:.7rem 0}
+.item fieldset{border:0;padding:0;margin:0;min-width:0}
+.item legend{font-weight:700;margin:0 0 .6rem;padding:0}
+.choix{display:flex;align-items:flex-start;gap:.55rem;margin:.48rem 0;cursor:pointer}
+.choix input{margin-top:.42rem;flex-shrink:0;accent-color:var(--inter)}
+.retro{margin-top:.6rem;padding:.6rem .8rem;border-radius:8px;font-size:.95rem}
+.retro.ok{border:1px solid var(--ok);color:#1E5420;background:#EBF4ED}
+.retro.nok{border:1px solid var(--nok);color:#79392D;background:#FBEEEB}
+.retro.neutre{border:1px solid #B8C9B8;background:#fff;color:var(--texte2)}
+.onglets{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0;border-bottom:2px solid var(--encre)}
+.onglets button{background:var(--carte);border:1px solid var(--bordure);border-bottom:0;border-radius:8px 8px 0 0;padding:.55rem .9rem;color:var(--encre)}
+.onglets button[aria-selected="true"]{background:var(--encre);color:#fff;border-color:var(--encre)}
+.panneau{background:var(--carte);border:1px solid var(--bordure);border-top:0;border-radius:0 0 12px 12px;padding:1.2rem 1.4rem}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}
+.role{border:1px solid var(--bordure);border-radius:10px;padding:.8rem 1rem;background:#FCFDFB}
+.role h4{margin-top:0;font-size:.98rem;color:var(--encre)}
+.role ul{margin:.3rem 0 0;padding-left:1.1rem}
+.coche label{display:flex;gap:.6rem;align-items:flex-start;padding:.35rem 0}
+.coche input{width:1.15rem;height:1.15rem;margin-top:.25rem;accent-color:var(--inter)}
+select{font:inherit;padding:.55rem;border-radius:7px;border:1px solid var(--texte2);max-width:100%;background:#fff;color:var(--texte)}
+details{background:var(--carte);border:1px solid var(--bordure);border-radius:10px;padding:.65rem 1rem;margin:.8rem 0}
+summary{cursor:pointer;font-weight:650;color:var(--encre)}
+.refs li{margin:.45rem 0;font-size:.93rem}
+.haut{display:inline-block;margin-top:1rem;font-size:.9rem}
+.mobile-menu{display:none}
+.progression{height:4px;position:fixed;top:0;left:0;right:0;z-index:30;pointer-events:none}
+.progression span{display:block;height:100%;width:0;background:#8FB99D;transition:width .12s linear}
+.intro-hero{position:relative;background:linear-gradient(138deg,#E6EEE5 0%,#F3F5ED 60%,#FBFCF8 100%);border:1px solid #CEDCCD;border-radius:20px;padding:2rem clamp(1.2rem,3.4vw,2.6rem);overflow:hidden;margin:-.35rem 0 1.5rem}
+.intro-hero::after{content:"";position:absolute;width:235px;height:235px;border:38px solid rgba(111,151,121,.10);border-radius:50%;right:-90px;top:-90px;pointer-events:none}
+.sur-titre{display:inline-flex;align-items:center;gap:.55rem;color:#426451;text-transform:uppercase;letter-spacing:.11em;font-size:.75rem;font-weight:800;margin:0 0 1rem}
+.sur-titre::before{content:"";width:21px;height:2px;background:#759781}
+.intro-hero h1{font-size:clamp(2rem,3.6vw,3.15rem);max-width:780px;margin:0 0 1rem;line-height:1.13;letter-spacing:-.035em}
+.intro-hero .chapeau{font-size:1.08rem;max-width:760px;color:#42594A;margin:0 0 1.4rem}
+.actions-accueil{display:flex;flex-wrap:wrap;gap:.7rem;position:relative;z-index:1}
+.action{display:inline-flex;align-items:center;gap:.6rem;border:1px solid #6F9577;border-radius:9px;padding:.65rem 1rem;text-decoration:none;font-weight:700;font-size:.93rem;line-height:1.35;background:#fff;color:#385848}
+.action.principale{background:#385848;color:#fff;border-color:#385848}
+.action:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(39,70,52,.12)}
+.parcours{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.2rem 0 1.8rem}
+.parcours a{display:block;text-decoration:none;color:var(--texte);background:#fff;border:1px solid var(--bordure);border-radius:12px;padding:1rem 1.1rem;min-width:0}
+.parcours a:hover{border-color:#88A892;background:#FBFDF9}
+.parcours strong{display:block;color:var(--encre);font-size:.98rem}
+.parcours span{display:block;font-size:.88rem;color:var(--texte2);line-height:1.5;margin-top:.28rem}
+.note-methode{background:#F0F4EB;border:1px solid #C8D8C5;border-radius:10px;padding:.9rem 1rem;font-size:.94rem;color:#344D3A}
+.chap-num{display:inline-block;color:#688373;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .4rem}
+.note-lecture{font-size:.9rem;color:var(--texte2);margin-top:-.1rem}
+.revision-intro{display:flex;flex-wrap:wrap;gap:.55rem;margin:.8rem 0 1.2rem}
+.revision-intro span{display:inline-block;background:#ECF3EB;color:#385848;border:1px solid #BDD1BE;border-radius:999px;padding:.24rem .7rem;font-size:.85rem;font-weight:650}
+.revision-cas{background:#fff;border:1px solid #C7D6C5;border-radius:14px;padding:1rem 1.3rem;margin:1rem 0}
+.revision-cas h3{margin:.2rem 0 .7rem}
+.revision-etape{background:#fff;border:1px solid var(--bordure);border-radius:13px;padding:1.2rem 1.3rem;margin:1.1rem 0}
+.revision-etape h3{margin:.1rem 0 .5rem;font-size:1.12rem}
+.revision-etape textarea{width:100%;min-height:108px;resize:vertical;border:1px solid #AEBFAF;border-radius:9px;padding:.7rem .8rem;color:var(--texte);font:inherit;line-height:1.5}
+.revision-etape label.prompt{display:block;font-weight:650;margin:.55rem 0 .5rem;color:var(--encre)}
+.revision-verif{background:#F5F8F3;border:1px solid #D6E0D3;border-radius:10px;padding:.8rem 1rem;margin:1rem 0}
+.revision-verif p{font-weight:650;color:var(--encre);margin:0 0 .35rem}
+.revision-verif label{display:flex;align-items:flex-start;gap:.55rem;padding:.24rem 0;font-size:.93rem}
+.revision-verif input{width:1.1rem;height:1.1rem;margin-top:.22rem;accent-color:var(--inter);flex-shrink:0}
+.revision-pied{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1rem}
+.revision-compteur{font-weight:700;color:var(--encre);margin:.3rem 0}
+.revision-avertissement{font-size:.88rem;color:var(--texte2);margin:.5rem 0}
+.pratique-texte{background:#F8FBF7;border-left:3px solid #8BA88F;padding:.7rem 1rem;margin:.65rem 0;font-style:italic}
+.questions{padding-left:1.35rem}.questions li{margin-bottom:.55rem}
+.mini-chaine{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:1rem 0}
+.mini-chaine span{background:#EAF3EF;border:1px solid #B7D0C1;padding:.5rem .65rem;border-radius:8px;font-size:.9rem;font-weight:650}
+.mini-chaine b{color:var(--inter)}
+.petit{font-size:.9rem;color:var(--texte2)}
+@media(max-width:860px){.mise{grid-template-columns:1fr}nav.menu{position:static;height:auto;padding:1rem 1rem .8rem}nav.menu h2{margin:0;font-size:1rem}nav.menu .titre-guide{margin-bottom:.2rem}.mobile-menu{display:inline-flex;float:right;align-items:center;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:7px;padding:.35rem .7rem;font-size:.9rem}nav.menu ol,nav.menu .legende-menu{display:none}nav.menu.ouvert ol,nav.menu.ouvert .legende-menu{display:block}nav.menu ol{margin-top:1rem}main{padding-top:1.3rem}.parcours{grid-template-columns:1fr}}
+@media(max-width:560px){body{font-size:16px}h2{font-size:1.42rem}.intro-hero{padding:1.4rem}.intro-hero h1{font-size:2rem}.grille3,.roles{grid-template-columns:minmax(0,1fr)}.activite,.panneau{padding:1rem}.mini-chaine{display:block}.mini-chaine span{display:block;margin:.35rem 0}.mini-chaine b{display:none}}
+@media print{nav.menu,.saut,.actions-accueil,.parcours,.progression,.activite button,.revision-pied,.mobile-menu{display:none}.mise{display:block}body{background:#fff}.intro-hero{border:0;padding:.5rem 0;background:#fff}.panneau[hidden]{display:block!important}.revision-etape textarea{min-height:60px}}
+</style>
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+<div class="progression" aria-hidden="true"><span id="progression-barre"></span></div>
+<div class="mise">
+<nav class="menu" aria-label="Sections du guide">
+  <button type="button" class="mobile-menu" id="mobile-menu" aria-expanded="false" aria-controls="liens-navigation">☰ Menu</button>
+  <p class="titre-guide">3PDG260 · Approches pédagogiques</p>
+  <h2>Famille 2a · Problème, enquête, investigation</h2>
+  <ol id="liens-navigation">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#fondements">0. Fondements communs</a></li>
+    <li><a href="#demarches">1. Trois démarches à distinguer</a></li>
+    <li><a href="#choisir">2. Quand et pourquoi les choisir?</a></li>
+    <li><a href="#conduire">3. Comment les conduire?</a></li>
+    <li><a href="#evaluer">4. Évaluer et rendre accessible</a></li>
+    <li><a href="#revision">5. M'entraîner pour l'examen</a></li>
+    <li><a href="#cloture">Aide-mémoire et références</a></li>
+  </ol>
+  <div class="legende-menu">
+    <div>▣ Problème mathématique : contraintes et stratégies</div>
+    <div>◉ Enquête littéraire : hypothèses et indices du texte</div>
+    <div>△ Investigation scientifique : données et explications</div>
+    <div>✎ Activité avec rétroaction</div>
+  </div>
+</nav>
+<main id="contenu">
+
+<section id="accueil" aria-labelledby="t-accueil">
+  <div class="intro-hero">
+    <p class="sur-titre">3PDG260 · Guide de révision · Famille 2a</p>
+    <h1 id="t-accueil">Résoudre un problème, mener une enquête, investiguer un phénomène</h1>
+    <p class="chapeau">Trois démarches proches, mais non interchangeables. Apprenez à reconnaître ce qui se passe réellement dans la classe, à nommer le travail intellectuel des élèves et à justifier vos décisions pédagogiques.</p>
+    <div class="actions-accueil">
+      <a class="action principale" href="#demarches">Comparer les démarches</a>
+      <a class="action" href="#revision">Réviser en autonomie</a>
+      <a class="action" href="#cloture">Consulter l'aide-mémoire</a>
+    </div>
+  </div>
+  <p class="note-lecture">Mode d'emploi : lisez à votre rythme, tentez les questions avant d'afficher les réponses, puis entraînez-vous sur une vignette inédite. Vous pouvez fermer le fichier et y revenir : vos réponses rédigées sont enregistrées dans ce navigateur, si son stockage est autorisé. Aucun compte ni connexion n'est nécessaire.</p>
+  <div class="parcours">
+    <a href="#fondements"><strong>Je veux comprendre</strong><span>Les points communs, la place de l'élève et du savoir, les liens théoriques.</span></a>
+    <a href="#choisir"><strong>Je veux décider</strong><span>Choisir selon l'apprentissage visé, déceler une fausse enquête ou un exercice déguisé.</span></a>
+    <a href="#revision"><strong>Je veux pratiquer</strong><span>Une situation au choix, cinq réponses à construire, indices de qualité et rétroactions.</span></a>
+  </div>
+  <div class="activite">
+    <div class="tete">✎ Avant de commencer : votre intuition</div>
+    <p class="consigne">Laquelle de ces affirmations décrit le mieux la famille 2a?</p>
+    <div data-quiz="diagnostic"></div>
+  </div>
+  <div class="carte">
+    <h3 style="margin-top:0">Ce que vous saurez faire à la fin</h3>
+    <ol>
+      <li><strong>Reconnaître</strong> une démarche à partir des actions observées et d'indices précis, sans vous fier uniquement à l'étiquette utilisée par l'enseignante.</li>
+      <li><strong>Distinguer</strong> question mathématique à résoudre, question littéraire à interpréter et question scientifique à investiguer.</li>
+      <li><strong>Analyser</strong> l'activité cognitive réelle des élèves, les interventions de l'enseignante et les relations enseignant–élève–savoir.</li>
+      <li><strong>Juger</strong> si des outils d'évaluation montrent vraiment les apprentissages visés et proposer une adaptation accessible qui préserve le défi.</li>
+      <li><strong>Argumenter</strong> une décision pédagogique avec des liens explicites entre contexte, actions, apprentissages et effets attendus.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="fondements" aria-labelledby="t-fondements">
+  <p class="chap-num">Chapitre 0</p>
+  <h2 id="t-fondements">Ce qui unit les trois démarches</h2>
+  <p>Dans cette famille, le savoir se construit en travaillant sur une <strong>question qui exige une recherche véritable</strong>. Les élèves n'appliquent pas simplement une suite d'actions déjà fournie : ils doivent prendre des décisions, examiner des pistes, confronter leurs idées et les justifier. L'enseignante organise le milieu, fournit les ressources utiles, relance et institutionnalise les apprentissages.</p>
+  <div class="mini-chaine" aria-label="Progression souple du raisonnement">
+    <span>Une question qui résiste</span><b>→</b><span>Des hypothèses ou stratégies</span><b>→</b><span>Des preuves à examiner</span><b>→</b><span>Une justification révisable</span>
+  </div>
+  <p class="petit">Il s'agit de repères, <strong>pas d'étapes rigides</strong>. On peut revenir à une hypothèse, modifier une méthode ou consulter à nouveau les données.</p>
+  <div class="grille3">
+    <div class="fam p"><h4>Une question authentique</h4><p>Elle comporte une incertitude intellectuelle pour les élèves : une solution à construire, une interprétation à défendre ou une explication à vérifier.</p></div>
+    <div class="fam s"><h4>Des décisions qui leur appartiennent</h4><p>Choisir une stratégie, sélectionner des indices pertinents ou prévoir ce qui doit être comparé. L'autonomie peut être graduée selon l'âge et les besoins.</p></div>
+    <div class="fam r"><h4>Une mise à l'épreuve des idées</h4><p>Calculs et contraintes, indices textuels, observations et données : la nature des preuves varie selon la discipline.</p></div>
+  </div>
+  <h3>Liens avec les courants d'apprentissage</h3>
+  <p>Une lecture <strong>constructiviste</strong> éclaire l'importance des représentations initiales, des essais et de la réorganisation des idées. Une lecture <strong>socioconstructiviste</strong> fait voir la richesse de l'argumentation et des confrontations entre élèves. Les interventions de guidage et de rétroaction demeurent essentielles. Ces liens servent à expliquer la vignette : ils ne sont pas des étiquettes absolues.</p>
+  <div class="encadre garder"><div class="tete">✓ Le triangle de Houssaye : une lecture des moments</div>
+    <p>Quand l'enseignante établit le problème et les outils nécessaires, la relation <strong>enseigner</strong> (enseignante–savoir) peut être plus visible. Quand elle soutient les échanges et la participation, la relation <strong>former</strong> (enseignante–élèves) peut passer au premier plan. Quand les élèves mettent à l'épreuve leurs idées à partir du savoir, la relation <strong>apprendre</strong> (élèves–savoir) peut devenir centrale. <strong>Les trois pôles demeurent présents</strong> : on décrit un moment et on justifie ce qu'on observe.</p>
+  </div>
+  <div class="encadre vigil"><div class="tete">! Piège fréquent</div><p>« Les élèves sont actifs » ne suffit pas. Ils peuvent découper, mesurer ou discuter sans résoudre la question, construire une interprétation ou comprendre le phénomène. Demandez-vous : <strong>à quoi pensent-ils, que choisissent-ils et sur quelles preuves s'appuient-ils?</strong></p></div>
+  <div class="activite"><div class="tete">✎ Repérer l'activité intellectuelle</div><p class="consigne">Quelle observation atteste le mieux une démarche de cette famille?</p><div data-quiz="fondements"></div></div>
+</section>
+
+<section id="demarches" aria-labelledby="t-demarches">
+  <p class="chap-num">Chapitre 1</p>
+  <h2 id="t-demarches">Trois démarches, trois types de preuves</h2>
+  <p>Voici les situations travaillées dans nos animations. Leur objectif n'est pas d'apprendre trois recettes, mais de comprendre ce qui rend chacune pertinente dans sa discipline.</p>
+  <div class="grille3">
+    <article class="fam p">
+      <span class="etiq p">Résolution de problème</span>
+      <h4>Mathématique · un trajet à organiser</h4>
+      <p><strong>Question motrice :</strong> quel itinéraire respecterait les contraintes de temps et de distance?</p>
+      <p><strong>Activité cognitive :</strong> comprendre les contraintes, choisir des calculs, représenter des possibilités, comparer des stratégies, contrôler la plausibilité.</p>
+      <p><strong>Preuves :</strong> représentations, opérations, vérification des contraintes, justification du choix.</p>
+      <p><strong>Attention :</strong> si tous les calculs et leur ordre sont donnés, il reste surtout un exercice d'application.</p>
+    </article>
+    <article class="fam s">
+      <span class="etiq s">Enquête littéraire</span>
+      <h4>Français · plusieurs versions d'un conte</h4>
+      <p><strong>Question motrice :</strong> comment interpréter un personnage, un événement ou une intention lorsque les versions diffèrent?</p>
+      <p><strong>Activité cognitive :</strong> émettre une interprétation, sélectionner des indices, comparer les lectures, nuancer ou réviser sa position.</p>
+      <p><strong>Preuves :</strong> passages, images, choix narratifs, liens explicites avec une hypothèse.</p>
+      <p><strong>Attention :</strong> relever des différences sans question interprétative ne suffit pas à faire une enquête littéraire.</p>
+    </article>
+    <article class="fam r">
+      <span class="etiq r">Investigation scientifique</span>
+      <h4>Science et technologie · un phénomène à expliquer</h4>
+      <p><strong>Question motrice :</strong> qu'est-ce qui influence le phénomène et comment pourrait-on le vérifier?</p>
+      <p><strong>Activité cognitive :</strong> formuler des hypothèses, concevoir une comparaison valable, observer ou mesurer, interpréter et discuter les limites.</p>
+      <p><strong>Preuves :</strong> données consignées, observations répétées au besoin, variables contrôlées, explication appuyée.</p>
+      <p><strong>Attention :</strong> suivre une fiche-protocole entièrement imposée ne suffit pas à montrer une investigation autonome.</p>
+    </article>
+  </div>
+  <div class="defile"><table>
+    <caption>Une même famille, des opérations intellectuelles distinctes</caption>
+    <thead><tr><th>Question à se poser</th><th>Problème</th><th>Enquête littéraire</th><th>Investigation</th></tr></thead>
+    <tbody>
+      <tr><th>Ce qui résiste</th><td>Plusieurs chemins de résolution ou contraintes à articuler</td><td>Un sens à construire, des interprétations possibles</td><td>Une explication à éprouver face à des observations</td></tr>
+      <tr><th>Ce que les élèves décident</th><td>Représentations, stratégies, critères de choix</td><td>Hypothèses de lecture et indices à retenir</td><td>Variables, comparaisons, collecte et traitement des données</td></tr>
+      <tr><th>Ce qui soutient la réponse</th><td>Calculs, relations, contraintes vérifiées</td><td>Indices textuels ou iconographiques et cohérence de l'interprétation</td><td>Mesures, observations, conditions d'essai</td></tr>
+      <tr><th>Ce qui peut être discuté</th><td>Stratégie, efficacité, validité de la solution</td><td>Plausibilité et nuances de l'interprétation</td><td>Qualité de la comparaison et portée de l'explication</td></tr>
+    </tbody>
+  </table></div>
+  <div class="encadre garder"><div class="tete">✓ Un point de vigilance commun</div><p>Une réponse peut être différente de celle de l'enseignante sans être faible. On examine <strong>sa justification et les critères propres à la discipline</strong> : contraintes respectées, indices pertinents, données fiables. En sciences, toutes les conclusions ne sont pas équivalentes; en littérature, une interprétation doit rester défendable par le texte.</p></div>
+  <div class="activite"><div class="tete">✎ Distinguer sans confondre</div><p class="consigne">Pour chaque situation, sélectionnez la meilleure analyse, puis lisez la rétroaction.</p><div data-quiz="demarches"></div></div>
+</section>
+
+<section id="choisir" aria-labelledby="t-choisir">
+  <p class="chap-num">Chapitre 2</p>
+  <h2 id="t-choisir">Quand la démarche est-elle pertinente?</h2>
+  <p>La question n'est pas : « Quelle activité sera stimulante? », mais <strong>« Quel apprentissage précis cette démarche permettra-t-elle de développer? »</strong> Une activité motivante peut préparer un apprentissage sans encore le faire travailler.</p>
+  <div class="carte">
+    <h3 style="margin-top:0">Trois décisions à justifier</h3>
+    <ol>
+      <li><strong>Nommer l'objet d'apprentissage.</strong> S'agit-il de sélectionner une stratégie, d'interpréter des intentions ou d'expliquer une relation entre variables?</li>
+      <li><strong>Vérifier que la tâche l'exige.</strong> Un problème dont la procédure est annoncée, une comparaison de textes réduite à un tableau de ressemblances et une expérience dont tout est prédéterminé n'offrent pas les mêmes occasions d'apprendre.</li>
+      <li><strong>Ajuster le guidage.</strong> Les élèves peuvent avoir besoin d'outils, d'exemples de traces ou de questions de relance tout en conservant les décisions qui constituent le cœur de l'apprentissage.</li>
+    </ol>
+  </div>
+  <div class="grille3">
+    <div class="fam p"><h4>Une aide qui soutient</h4><p>Proposer un schéma pour organiser les données, puis laisser les élèves déterminer comment résoudre et vérifier.</p></div>
+    <div class="fam s"><h4>Une aide qui soutient</h4><p>Permettre de réécouter le texte ou d'utiliser des marque-pages pour retrouver les indices; les élèves défendent toujours leur interprétation.</p></div>
+    <div class="fam r"><h4>Une aide qui soutient</h4><p>Fournir un tableau de consignation accessible; les élèves décident ce qu'il faut comparer et expliquent les résultats.</p></div>
+  </div>
+  <div class="encadre vigil"><div class="tete">! Le point de bascule</div><p>Un guidage devient trop directif pour l'objectif retenu lorsqu'il <strong>fait à la place des élèves la décision intellectuelle que l'on voulait leur apprendre</strong> : choisir les opérations, sélectionner les indices décisifs ou concevoir la comparaison.</p></div>
+  <div class="activite"><div class="tete">✎ Juger la pertinence</div><p class="consigne">Imaginez ce que les élèves apprennent, pas seulement ce qu'ils font.</p><div data-quiz="choisir"></div></div>
+</section>
+
+<section id="conduire" aria-labelledby="t-conduire">
+  <p class="chap-num">Chapitre 3</p>
+  <h2 id="t-conduire">Faire vivre la démarche sans retirer le raisonnement</h2>
+  <p>Explorez les quatre moments ci-dessous. Ils forment une trame souple qui peut être réinvestie dans les trois démarches. Observez toujours le couple <strong>intervention de l'enseignante ↔ activité cognitive de l'élève</strong>.</p>
+  <div class="onglets" role="tablist" aria-label="Moments d'une démarche de la famille 2a" id="onglets-moments">
+    <button type="button" role="tab" id="tab-0" aria-controls="pan-0" aria-selected="true" tabindex="0">1. Problématiser</button>
+    <button type="button" role="tab" id="tab-1" aria-controls="pan-1" aria-selected="false" tabindex="-1">2. Explorer</button>
+    <button type="button" role="tab" id="tab-2" aria-controls="pan-2" aria-selected="false" tabindex="-1">3. Confronter</button>
+    <button type="button" role="tab" id="tab-3" aria-controls="pan-3" aria-selected="false" tabindex="-1">4. Structurer</button>
+  </div>
+  <div class="panneau" role="tabpanel" id="pan-0" aria-labelledby="tab-0" tabindex="0">
+    <h3 style="margin-top:0">1. Problématiser : comprendre ce qui pose question</h3>
+    <div class="roles"><div class="role"><h4>L'enseignante</h4><ul><li>Présente une situation accessible, mais intellectuellement ouverte.</li><li>Fait émerger les premières idées sans confirmer trop vite la « bonne » réponse.</li><li>Clarifie la question et les critères de réussite.</li></ul></div><div class="role"><h4>Les élèves</h4><ul><li>Disent ce qu'ils pensent et ce qu'ils doivent découvrir.</li><li>Formulent une hypothèse, une représentation ou une piste de lecture.</li><li>Repèrent les informations et connaissances à mobiliser.</li></ul></div></div>
+    <p><strong>Relance :</strong> « Qu'est-ce qui nous manque pour décider? »</p>
+    <p class="petit">Trace possible : question reformulée, premières propositions, critères à vérifier.</p>
+  </div>
+  <div class="panneau" role="tabpanel" id="pan-1" aria-labelledby="tab-1" tabindex="0" hidden>
+    <h3 style="margin-top:0">2. Explorer : faire des choix et recueillir des preuves</h3>
+    <div class="roles"><div class="role"><h4>L'enseignante</h4><ul><li>Fournit outils et ressources, observe les essais.</li><li>Questionne les raisons d'un choix.</li><li>Étaye au besoin sans fournir d'emblée toute la méthode.</li></ul></div><div class="role"><h4>Les élèves</h4><ul><li>Construisent une stratégie, sélectionnent des passages ou conçoivent une comparaison.</li><li>Gardent des traces lisibles de leur démarche.</li><li>Vérifient leurs idées et les modifient si nécessaire.</li></ul></div></div>
+    <p><strong>Relance :</strong> « Qu'est-ce qui te permet de soutenir cette piste? »</p>
+    <p class="petit">Trace possible : schéma de calculs, citations annotées, tableau de données.</p>
+  </div>
+  <div class="panneau" role="tabpanel" id="pan-2" aria-labelledby="tab-2" tabindex="0" hidden>
+    <h3 style="margin-top:0">3. Confronter : mettre les idées à l'épreuve</h3>
+    <div class="roles"><div class="role"><h4>L'enseignante</h4><ul><li>Organise la comparaison de pistes ou de résultats.</li><li>Demande de préciser critères et preuves.</li><li>Favorise une discussion respectueuse où les idées peuvent changer.</li></ul></div><div class="role"><h4>Les élèves</h4><ul><li>Expliquent pourquoi une solution fonctionne.</li><li>Interrogent des interprétations ou la validité des mesures.</li><li>Nuancent, réfutent ou révisent leur réponse.</li></ul></div></div>
+    <p><strong>Relance :</strong> « Quelle preuve ferait changer votre avis? »</p>
+    <p class="petit">Trace possible : comparaison de stratégies, arguments et contre-arguments, discussion des variables.</p>
+  </div>
+  <div class="panneau" role="tabpanel" id="pan-3" aria-labelledby="tab-3" tabindex="0" hidden>
+    <h3 style="margin-top:0">4. Structurer : nommer et transférer l'apprentissage</h3>
+    <div class="roles"><div class="role"><h4>L'enseignante</h4><ul><li>Institutionnalise les concepts, stratégies et critères mis au jour.</li><li>Éclaire ce qui distingue une conclusion valide d'une réponse fragile.</li><li>Propose une tâche de réinvestissement.</li></ul></div><div class="role"><h4>Les élèves</h4><ul><li>Formulent ce qu'ils ont appris <em>sur la démarche</em> et <em>sur le savoir</em>.</li><li>Reprennent leur justification en tenant compte des critiques.</li><li>Utilisent un critère dans une situation proche, mais nouvelle.</li></ul></div></div>
+    <p><strong>Relance :</strong> « Qu'est-ce que vous feriez autrement la prochaine fois, et pourquoi? »</p>
+    <p class="petit">Trace possible : synthèse de classe, justification révisée, transfert court.</p>
+  </div>
+  <div class="encadre garder"><div class="tete">✓ L'enseignante ne disparaît pas</div><p>Laisser une part réelle de recherche n'exige ni de laisser les élèves seuls, ni de leur faire tout découvrir. Une explication explicite d'un outil ou d'une notion peut soutenir la démarche; il faut ensuite redonner aux élèves la décision intellectuelle centrale.</p></div>
+  <div class="activite"><div class="tete">✎ Choisir une relance utile</div><p class="consigne">À quel moment une question de l'enseignante nourrit-elle plutôt qu'elle ne remplace le raisonnement?</p><div data-quiz="conduire"></div></div>
+</section>
+
+<section id="evaluer" aria-labelledby="t-evaluer">
+  <p class="chap-num">Chapitre 4</p>
+  <h2 id="t-evaluer">Évaluer ce qu'on veut vraiment faire apprendre</h2>
+  <p>Une production attrayante n'est pas nécessairement une preuve de l'apprentissage visé. Vérifiez l'alignement entre <strong>objectif → activité cognitive demandée → trace recueillie → critères de jugement</strong>.</p>
+  <div class="defile"><table>
+    <thead><tr><th>Apprentissage visé</th><th>Trace forte</th><th>Trace partielle ou insuffisante seule</th></tr></thead>
+    <tbody>
+      <tr><th>Justifier une solution mathématique</th><td>Solution représentée, contraintes vérifiées, explication des choix</td><td>La réponse numérique seule ou un exercice isolé de calcul</td></tr>
+      <tr><th>Défendre une interprétation littéraire</th><td>Interprétation liée à deux indices pertinents, nuance face à une autre lecture</td><td>Un résumé, une liste de personnages ou un relevé de différences</td></tr>
+      <tr><th>Justifier une explication scientifique</th><td>Comparaison valable, données, raisonnement reliant les résultats à la conclusion</td><td>Une liste de matériel, un protocole recopié ou le simple succès de la manipulation</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Analyser deux outils plutôt que trois</h3>
+  <p>Si une situation présente plusieurs instruments (grille d'observation, trace individuelle, production d'équipe), demandez-vous, pour <strong>deux outils choisis</strong> : <em>qu'évalue-t-il réellement? Que laisse-t-il dans l'ombre? Quelle modification simple améliorerait l'alignement?</em> Un outil peut être pertinent pour un objectif secondaire sans suffire pour l'objectif central.</p>
+  <div class="encadre cua"><div class="tete">Accessibilité / CUA : retirer l'obstacle, pas le raisonnement</div><ul>
+    <li><strong>Problème :</strong> texte lu à voix haute, schéma des contraintes ou possibilité d'expliquer sa stratégie à l'oral. Les élèves doivent toujours choisir et justifier une solution.</li>
+    <li><strong>Enquête littéraire :</strong> texte audio, police agrandie, passages numérotés, amorces de discussion. Les élèves doivent toujours sélectionner et relier des indices à leur interprétation.</li>
+    <li><strong>Investigation :</strong> matériel adapté, rôles explicites, tableau de consignation prêt à remplir. Les élèves doivent toujours faire des choix pertinents, interpréter leurs données et justifier leur conclusion.</li>
+  </ul></div>
+  <div class="encadre vigil"><div class="tete">! Attention aux compensations qui changent l'objectif</div><p>Une fiche qui fournit les calculs décisifs, les passages « qui prouvent la bonne réponse » ou la conclusion attendue retire précisément le travail intellectuel à évaluer. On peut soutenir l'accès et l'organisation sans résoudre la question à la place des élèves.</p></div>
+  <div class="activite"><div class="tete">✎ Quel outil montre quel apprentissage?</div><p class="consigne">Lisez la trace recueillie et choisissez le jugement le plus prudent.</p><div data-quiz="evaluer"></div></div>
+</section>
+
+<section id="revision" aria-labelledby="t-revision">
+  <p class="chap-num">Chapitre 5 · Travail autonome</p>
+  <h2 id="t-revision">Réviser : construire une analyse, pas réciter une définition</h2>
+  <p>Choisissez <strong>une vignette nouvelle</strong> dans le menu. Les trois situations correspondent aux démarches de la famille 2a, mais elles ne reprennent pas les cas de l'examen. Vous pouvez ensuite recommencer avec une autre démarche.</p>
+  <div class="revision-intro"><span>≈ 15 à 25 minutes par cas</span><span>5 décisions à expliquer</span><span>Rétroactions sous chaque réponse</span><span>Enregistrement local</span></div>
+  <div class="revision-cas">
+    <label for="revision-cas-select"><strong>Je choisis mon cas d'entraînement :</strong></label><br>
+    <select id="revision-cas-select" style="margin:.5rem 0 1rem;min-width:min(100%,420px)">
+      <option value="probleme">A · Le kiosque de livres (résolution de problème)</option>
+      <option value="litteraire">B · Le mystère de la clé (enquête littéraire)</option>
+      <option value="scientifique">C · L'eau dans les sols (investigation scientifique)</option>
+    </select>
+    <div id="revision-vignette" aria-live="polite"></div>
+  </div>
+  <div class="activite"><div class="tete">✎ Vérification éclair avant l'analyse</div><p class="consigne">Une bonne justification relie les indices à une conclusion. Cet exemple vous aide à ajuster votre réponse.</p><div data-quiz="revision"></div></div>
+  <div id="revision-etapes">
+    <article class="revision-etape"><h3>1. Reconnaître et justifier la démarche</h3><label class="prompt" for="revision-1">Quelle démarche est en jeu? Appuyez votre réponse sur <strong>deux indices précis</strong> de la vignette. Si la démarche reste incomplète, dites-le.</label><textarea id="revision-1" data-revision-reponse="1" placeholder="J'observe que… Cela indique… puisque…"></textarea><div class="revision-verif"><p>Je vérifie ma réponse :</p><label><input type="checkbox" data-revision-verif="1">J'ai nommé la démarche ou la tension entre intention et mise en œuvre.</label><label><input type="checkbox" data-revision-verif="1">J'ai utilisé deux faits réellement présents dans la vignette.</label><label><input type="checkbox" data-revision-verif="1">J'ai expliqué le lien entre ces faits et la démarche.</label></div><details><summary>Comparer ma réponse à une piste de correction</summary><p data-modele="1"></p></details></article>
+    <article class="revision-etape"><h3>2. Relier les observations aux fondements</h3><label class="prompt" for="revision-2">Que nous apprend la situation sur les relations enseignante–élèves–savoir? Proposez une lecture <strong>nuancée</strong> du triangle de Houssaye et, si cela aide, un lien théorique.</label><textarea id="revision-2" data-revision-reponse="2" placeholder="À tel moment, la relation… semble davantage visible parce que…"></textarea><div class="revision-verif"><p>Je vérifie ma réponse :</p><label><input type="checkbox" data-revision-verif="2">J'ai repéré au moins un moment concret de la situation.</label><label><input type="checkbox" data-revision-verif="2">J'ai relié les actions observées à une relation ou à un courant.</label><label><input type="checkbox" data-revision-verif="2">J'ai évité d'attribuer un seul pôle ou courant de façon automatique.</label></div><details><summary>Comparer ma réponse à une piste de correction</summary><p data-modele="2"></p></details></article>
+    <article class="revision-etape"><h3>3. Analyser l'activité cognitive réelle</h3><label class="prompt" for="revision-3">Quelles décisions ou opérations intellectuelles les élèves prennent-ils <strong>réellement</strong>? Que leur retire éventuellement l'enseignante? Quel apprentissage risque alors de manquer?</label><textarea id="revision-3" data-revision-reponse="3" placeholder="Les élèves font… Toutefois, ils ne décident pas… Cela limite…"></textarea><div class="revision-verif"><p>Je vérifie ma réponse :</p><label><input type="checkbox" data-revision-verif="3">J'ai décrit une activité cognitive observable, pas seulement une action matérielle.</label><label><input type="checkbox" data-revision-verif="3">J'ai identifié un appui pertinent ou une limite du guidage.</label><label><input type="checkbox" data-revision-verif="3">J'ai expliqué l'effet probable sur l'apprentissage visé.</label></div><details><summary>Comparer ma réponse à une piste de correction</summary><p data-modele="3"></p></details></article>
+    <article class="revision-etape"><h3>4. Examiner deux outils d'évaluation</h3><label class="prompt" for="revision-4">Choisissez <strong>deux des trois outils</strong> mentionnés dans la vignette. Pour chacun, dites ce qu'il révèle, ce qu'il ne permet pas de conclure et une amélioration possible.</label><textarea id="revision-4" data-revision-reponse="4" placeholder="L'outil A permet de voir… mais pas… Je le modifierais en…"></textarea><div class="revision-verif"><p>Je vérifie ma réponse :</p><label><input type="checkbox" data-revision-verif="4">J'ai choisi exactement deux outils.</label><label><input type="checkbox" data-revision-verif="4">J'ai relié chaque outil à l'apprentissage visé, avec une nuance.</label><label><input type="checkbox" data-revision-verif="4">J'ai proposé une amélioration concrète, pas nécessairement une refonte.</label></div><details><summary>Comparer ma réponse à une piste de correction</summary><p data-modele="4"></p></details></article>
+    <article class="revision-etape"><h3>5. Prendre une décision professionnelle</h3><label class="prompt" for="revision-5">Proposez <strong>une modification prioritaire</strong> de la situation et justifiez son effet sur l'apprentissage. Ajoutez un soutien CUA qui conserve le défi intellectuel; mentionnez brièvement une autre possibilité.</label><textarea id="revision-5" data-revision-reponse="5" placeholder="Je prioriserais… parce que… Pour soutenir l'accès sans retirer le défi… Une autre option…"></textarea><div class="revision-verif"><p>Je vérifie ma réponse :</p><label><input type="checkbox" data-revision-verif="5">Ma priorité répond au problème identifié dans la vignette.</label><label><input type="checkbox" data-revision-verif="5">J'ai précisé ce que les élèves feraient concrètement et l'effet attendu.</label><label><input type="checkbox" data-revision-verif="5">Mon adaptation conserve le raisonnement et je mentionne une alternative.</label></div><details><summary>Comparer ma réponse à une piste de correction</summary><p data-modele="5"></p></details></article>
+  </div>
+  <div class="activite">
+    <div class="tete">Mon bilan de révision</div>
+    <p class="revision-compteur" id="revision-compteur" aria-live="polite">0 critère sur 15 vérifié pour ce cas</p>
+    <p>Une analyse solide comporte <strong>des indices, des liens et une justification</strong>. Plusieurs réponses peuvent être pertinentes. La profondeur du raisonnement compte plus que le nombre d'étiquettes théoriques.</p>
+    <div class="revision-pied"><button class="btn plein" type="button" id="revision-export">Télécharger mes réponses (.txt)</button><button class="btn" type="button" id="revision-effacer">Effacer mes réponses pour ce cas</button></div>
+    <p class="revision-avertissement">Les textes restent sur votre appareil, dans ce navigateur seulement. Le téléchargement permet d'en garder une copie. Aucun texte n'est envoyé à l'enseignante.</p>
+    <p id="revision-message" aria-live="polite"></p>
+  </div>
+</section>
+
+<section id="cloture" aria-labelledby="t-cloture">
+  <p class="chap-num">Pour garder l'essentiel</p>
+  <h2 id="t-cloture">Aide-mémoire : six questions utiles</h2>
+  <div class="carte"><ol class="questions">
+    <li><strong>Quelle question résiste?</strong> Une contrainte mathématique, un sens littéraire, un phénomène scientifique?</li>
+    <li><strong>Quelle décision appartient aux élèves?</strong> Une stratégie, le choix d'indices, une comparaison valide?</li>
+    <li><strong>Quelles preuves soutiennent leur réponse?</strong> Calculs, passages, données?</li>
+    <li><strong>Que fait l'enseignante?</strong> Elle soutient la recherche ou livre une décision centrale?</li>
+    <li><strong>Qu'apprennent-ils?</strong> Les traces recueillies permettent-elles de le constater?</li>
+    <li><strong>Comment réduire un obstacle sans retirer le défi?</strong> Un support d'accès peut-il coexister avec une justification exigeante?</li>
+  </ol></div>
+  <details><summary>Repères pour une analyse écrite solide (grille SOLO en langage clair)</summary><ul>
+    <li><strong>Compréhension non démontrée :</strong> les éléments de la réponse ne permettent pas de reconnaître la situation.</li>
+    <li><strong>Repérage d'un élément pertinent :</strong> un indice juste est nommé, mais peu expliqué.</li>
+    <li><strong>Repérage de plusieurs éléments :</strong> plusieurs éléments sont reconnus, surtout énumérés.</li>
+    <li><strong>Analyse articulée et justifiée :</strong> des indices sont mis en relation avec les apprentissages et les décisions de l'enseignante; les liens sont expliqués. <strong>C'est le niveau visé.</strong></li>
+    <li><strong>Analyse approfondie et transférable :</strong> la réponse nuance encore davantage, envisage une condition ou un transfert; c'est enrichissant, <strong>pas obligatoire</strong>.</li>
+  </ul></details>
+  <div class="encadre garder"><div class="tete">✓ Un dernier conseil pour l'examen</div><p>N'écrivez pas « c'est une enquête parce que les élèves cherchent ». Écrivez plutôt <strong>ce qu'ils cherchent, comment ils décident, sur quelles preuves ils se fondent et ce que cela leur permet d'apprendre</strong>. Une réponse courte, précise et reliée vaut mieux qu'une longue liste de concepts.</p></div>
+  <h3>Références utiles pour aller plus loin</h3>
+  <ul class="refs">
+    <li>Ministère de l'Éducation du Québec. <a href="https://www.education.gouv.qc.ca/fileadmin/site_web/documents/education/jeunes/PDA_2021-2022-PFEQ_mathematique-primaire_1er_cycle.pdf" target="_blank" rel="noopener noreferrer">Progression des apprentissages en mathématique, primaire (1er cycle)</a> — stratégies de résolution et vérification.</li>
+    <li>Ministère de l'Éducation du Québec. <a href="https://www.education.gouv.qc.ca/fileadmin/site_web/documents/education/jeunes/PDA_2021-2022-PFEQ_science-technologie-primaire_2e_cycle.pdf" target="_blank" rel="noopener noreferrer">Progression des apprentissages en science et technologie (2e cycle)</a> — stratégies d'investigation et de communication.</li>
+    <li>Tauveron, C. (1999). <a href="https://www.persee.fr/doc/reper_1157-1330_1999_num_19_1_2289" target="_blank" rel="noopener noreferrer">Comprendre et interpréter le littéraire à l'école : du texte réticent au texte proliférant</a> — enjeux de l'interprétation.</li>
+    <li>Houssaye, J. <em>Le triangle pédagogique</em> — modèle mobilisé ici comme grille de lecture des relations en classe.</li>
+  </ul>
+  <p class="petit">Ce guide est une synthèse pédagogique conçue pour la révision du cours 3PDG260. Les exemples d'entraînement sont fictifs. Les analyses proposées sont des pistes discutables et justifiables, non des recettes universelles.</p>
+  <a class="haut" href="#accueil">↑ Retour à l'accueil</a>
+</section>
+
+</main></div>
+<script>
+(function(){
+"use strict";
+
+var QUIZ = {
+  diagnostic:[{q:"Qu'est-ce qui caractérise le mieux les trois démarches?",a:["Les élèves manipulent du matériel et travaillent en équipe.","Les élèves prennent des décisions intellectuelles, puis examinent des preuves pour justifier leurs réponses.","L'enseignante présente trois procédures à suivre sans modification."],c:1,e:"Le travail en équipe ou la manipulation peuvent aider, mais ne prouvent pas une recherche. Le point commun est l'activité intellectuelle réellement confiée aux élèves."}],
+  fondements:[{q:"Deux équipes obtiennent des réponses différentes à un problème. Quelle intervention soutient le mieux l'apprentissage?",a:["L'enseignante choisit immédiatement le bon résultat pour gagner du temps.","Elle demande aux équipes de montrer leurs démarches et de vérifier les contraintes.","Elle félicite les élèves parce qu'ils ont tous été actifs."],c:1,e:"La comparaison fondée sur les contraintes aide à évaluer la validité des démarches. L'activité matérielle ou la rapidité ne suffisent pas."}],
+  demarches:[
+    {q:"Des élèves lisent deux versions d'un conte, puis notent uniquement les ressemblances. Peut-on conclure qu'ils ont mené une enquête littéraire?",a:["Oui, car deux textes ont été comparés.","Pas encore : il faut une question d'interprétation et des indices utilisés pour la discuter.","Non, car l'enquête littéraire exige une seule lecture correcte."],c:1,e:"Comparer peut être une étape, mais l'enquête prend sens lorsqu'une question littéraire guide le choix des indices et la discussion d'interprétations défendables."},
+    {q:"Des élèves testent une hypothèse scientifique en changeant simultanément trois variables. Quel problème principal soulever?",a:["Il manque une affiche de présentation.","Le résultat ne permet pas de savoir quelle variable explique la différence observée.","Ils auraient dû apprendre d'abord une formule mathématique."],c:1,e:"Une investigation demande de raisonner sur la qualité de la comparaison. Si plusieurs facteurs changent, l'inférence est fragile."},
+    {q:"Une enseignante donne les opérations et leur ordre à suivre pour trouver le coût du trajet. Quel jugement est le plus juste?",a:["Les élèves sont nécessairement en résolution de problème.","La tâche devient surtout une application guidée; elle peut préparer une résolution plus ouverte.","L'enseignement explicite ne peut jamais être utile en mathématique."],c:1,e:"La procédure étant déjà décidée, le choix des stratégies n'appartient plus aux élèves. Ce guidage peut être utile à une autre étape, mais ne remplace pas le problème ouvert visé."}
+  ],
+  choisir:[
+    {q:"Objectif : apprendre à défendre une interprétation d'un personnage. Quelle tâche convient le mieux?",a:["Recopier le portrait du personnage présenté par l'enseignante.","Choisir une interprétation et la soutenir par des passages, puis discuter une lecture concurrente.","Compter le nombre de pages et de personnages du livre."],c:1,e:"Cette tâche rend nécessaires l'interprétation, la sélection d'indices et la justification, qui correspondent à l'objet d'apprentissage."},
+    {q:"Un élève comprend le problème, mais perd le fil des données écrites. Quel soutien préserve le mieux l'apprentissage?",a:["Remplir tous ses calculs pour qu'il termine avec les autres.","Donner un tableau clair des données et le laisser choisir sa stratégie.","L'autoriser à ne fournir qu'un résultat sans justification."],c:1,e:"Le tableau réduit l'obstacle d'organisation sans retirer le choix stratégique ni la justification."}
+  ],
+  conduire:[
+    {q:"En investigation, des résultats se contredisent. Quelle relance ouvre l'analyse?",a:["« La bonne explication est déjà écrite dans votre cahier. »","« Qu'est-ce qui était identique ou différent entre vos essais? »","« Refaites les mêmes gestes sans discuter. »"],c:1,e:"La relance amène les élèves à examiner les conditions de comparaison et la solidité de leurs données."},
+    {q:"Pendant une enquête littéraire, deux interprétations plausibles émergent. Que faire?",a:["Retenir celle de l'élève le plus convaincant à l'oral.","Demander les indices qui soutiennent chaque lecture et ce qui permet de les nuancer.","Écarter la discussion pour finir le tableau de différences."],c:1,e:"Les élèves construisent et ajustent leurs interprétations à partir du texte. La discussion doit servir l'apprentissage visé."}
+  ],
+  evaluer:[
+    {q:"Pour évaluer la capacité à expliquer un phénomène, l'enseignante vérifie uniquement que les élèves ont respecté le protocole. Que conclure?",a:["L'outil démontre pleinement la compétence d'investigation.","Il montre le respect des étapes, mais pas encore l'interprétation des données et la qualité de l'explication.","L'outil n'a aucune utilité pour personne."],c:1,e:"Une grille procédurale peut renseigner sur une partie de la démarche. Pour inférer une explication scientifique, il faut aussi examiner le raisonnement et les preuves."},
+    {q:"Pour juger une interprétation littéraire, quelle trace est la plus informative?",a:["Le nombre de pages lues.","Une justification reliant une hypothèse à des indices précis du texte.","La couleur choisie pour illustrer le personnage."],c:1,e:"Une interprétation s'évalue par sa cohérence et son ancrage dans les indices, pas par les seules caractéristiques matérielles du travail."}
+  ],
+  revision:[{q:"Quelle formulation correspond à une analyse articulée et justifiée?",a:["« Les élèves ont travaillé en groupe : c'est du socioconstructivisme. »","« Les groupes confrontent leurs choix à deux contraintes chiffrées; cette vérification développe la justification mathématique, même si l'enseignante devrait laisser plus de place au choix des stratégies. »","« Il y a un problème, un groupe et une évaluation. »"],c:1,e:"La deuxième réponse relie des faits observables à l'apprentissage et nuance le rôle du guidage. C'est le niveau de justification visé."}]
+};
+
+function buildQuiz(container,items,key){
+  items.forEach(function(it,idx){
+    var bloc=document.createElement("div");bloc.className="item";
+    var field=document.createElement("fieldset");var legend=document.createElement("legend");legend.textContent=it.q;field.appendChild(legend);
+    var name="quiz-"+key+"-"+idx;
+    // Varier la position des bonnes réponses, sans modifier leur sens.
+    var depart=(key.length+idx)%it.a.length;
+    for(var pas=0;pas<it.a.length;pas++){var j=(depart+pas)%it.a.length;var label=document.createElement("label");label.className="choix";var input=document.createElement("input");input.type="radio";input.name=name;input.value=String(j);label.appendChild(input);var span=document.createElement("span");span.textContent=it.a[j];label.appendChild(span);field.appendChild(label);}
+    var btn=document.createElement("button");btn.type="button";btn.className="btn plein";btn.textContent="Vérifier ma réponse";
+    var feed=document.createElement("div");feed.setAttribute("role","status");feed.setAttribute("aria-live","polite");
+    btn.addEventListener("click",function(){var checked=field.querySelector("input:checked");if(!checked){feed.className="retro neutre";feed.textContent="Choisissez d'abord une réponse, puis vérifiez.";return;}var good=Number(checked.value)===it.c;feed.className="retro "+(good?"ok":"nok");feed.textContent=(good?"✓ Oui. ":"À revoir. ")+it.e;});
+    bloc.appendChild(field);bloc.appendChild(btn);bloc.appendChild(feed);container.appendChild(bloc);
+  });
+}
+document.querySelectorAll("[data-quiz]").forEach(function(node){var k=node.getAttribute("data-quiz");if(QUIZ[k])buildQuiz(node,QUIZ[k],k);});
+
+var tabs=Array.prototype.slice.call(document.querySelectorAll("#onglets-moments [role=tab]"));
+function activeTab(i,focus){tabs.forEach(function(tab,j){var selected=j===i;tab.setAttribute("aria-selected",selected?"true":"false");tab.tabIndex=selected?0:-1;document.getElementById("pan-"+j).hidden=!selected;});if(focus)tabs[i].focus();}
+tabs.forEach(function(tab,i){tab.addEventListener("click",function(){activeTab(i,false);});tab.addEventListener("keydown",function(ev){var target=null;if(ev.key==="ArrowRight")target=(i+1)%tabs.length;else if(ev.key==="ArrowLeft")target=(i+tabs.length-1)%tabs.length;else if(ev.key==="Home")target=0;else if(ev.key==="End")target=tabs.length-1;if(target!==null){ev.preventDefault();activeTab(target,true);}});});
+
+var CASES={
+  probleme:{name:"A · Le kiosque de livres",kind:"Résolution de problème",description:
+    "<h3>A · Le kiosque de livres</h3><p>En 5e année, le conseil des élèves doit organiser un kiosque présentant <strong>36 albums</strong>. Il existe des bacs de <strong>6 livres (8 $ chacun)</strong> et des bacs de <strong>9 livres (11 $ chacun)</strong>. Le budget maximal est de <strong>50 $</strong>. La classe doit recommander une organisation en justifiant le coût, la capacité et les compromis possibles.</p><p>L'enseignante commence par demander des pistes. Plusieurs équipes proposent des combinaisons différentes. Pour accélérer le travail, elle projette ensuite un tableau rempli avec <em>toutes les combinaisons correctes</em> et demande simplement aux équipes d'en choisir une. Une élève fait remarquer qu'un choix moins cher laisse des places libres; ce critère n'est pas repris dans la discussion.</p><p><strong>Trois outils d'évaluation :</strong> (A) une feuille avec trois additions à compléter; (B) une grille d'observation de la participation des équipes; (C) un billet individuel « Mon choix, deux contraintes vérifiées et la raison de ma préférence ».</p>",
+    models:[
+      "La situation relève de la résolution de problème mathématique : les élèves doivent composer avec 36 albums, deux capacités et un budget de 50 $, puis argumenter un choix. Plusieurs combinaisons possibles rendent le choix stratégique pertinent. Cependant, le tableau entièrement rempli réduit ensuite la recherche : on passe d'une résolution possible à une sélection guidée.",
+      "Au départ, quand les équipes proposent leurs combinaisons, la relation élèves–savoir est particulièrement visible : elles explorent des possibilités mathématiques. Lorsque l'enseignante fournit toutes les combinaisons, la relation enseignante–savoir gagne en importance. Les échanges sur les contraintes auraient aussi pu soutenir une construction sociale des solutions, sans qu'une seule relation décrive toute la séance.",
+      "Les élèves envisagent d'abord des stratégies puis choisissent une combinaison déjà calculée. Ils comparent potentiellement le coût et les places disponibles, mais ne vérifient plus eux-mêmes l'ensemble des possibilités. Le savoir visé — choisir, tester et justifier une stratégie de résolution — risque de se réduire à suivre un tableau et nommer une préférence.",
+      "On peut choisir A et C : A indique si des additions sont justes, mais pas si l'élève sait élaborer une solution; ajouter une question « pourquoi cette combinaison? » améliorerait l'alignement. C révèle la vérification de contraintes et la justification; demander une comparaison avec une autre option montrerait mieux l'arbitrage. B, si choisi à la place, informe sur la participation, pas directement sur la résolution mathématique.",
+      "Je garderais le tableau vide ou partiellement amorcé, puis je demanderais aux équipes de produire et comparer au moins deux solutions selon coût, capacité et utilisation des places. Elles expliqueraient ensuite leurs choix. Un gabarit lisible ou une lecture orale des contraintes aiderait l'accès sans fournir les calculs. Une autre option serait un débat mathématique autour de deux propositions d'élèves."
+    ]},
+  litteraire:{name:"B · Le mystère de la clé",kind:"Enquête littéraire",description:
+    "<h3>B · Le mystère de la clé</h3><p>En 4e année, l'enseignante veut faire travailler l'<strong>interprétation des intentions d'un personnage</strong>. Elle lit deux courts passages d'un récit fictif :</p><p class='pratique-texte'>Version 1 — « Je n'ai pas pris la clé », dit Noa. Pourtant, sa main se refermait sur quelque chose dans sa poche.</p><p class='pratique-texte'>Version 2 — « J'ai caché la clé pour empêcher qu'on ouvre la serre pendant la tempête », murmura Noa.</p><p>Elle demande : <strong>« Peut-on faire confiance à Noa? »</strong> Des élèves avancent des interprétations opposées. L'enseignante leur donne une liste de passages déjà soulignés et annonce que la seconde version révèle la véritable intention du personnage. Les élèves recopient les différences entre les versions; ils n'ont presque plus à choisir leurs indices ni à défendre leur interprétation.</p><p><strong>Trois outils d'évaluation :</strong> (A) un tableau des différences entre versions; (B) un court texte « Mon interprétation, deux indices et une nuance »; (C) une grille d'observation du respect du tour de parole.</p>",
+    models:[
+      "L'enquête littéraire est visée parce qu'une question interprétative est posée (« Peut-on faire confiance à Noa? ») et que deux versions invitent à confronter des indices narratifs. Toutefois, l'enseignante donne les indices et tranche l'intention : la démarche devient surtout un relevé d'informations.",
+      "La question initiale et les lectures contradictoires ouvrent une relation élèves–savoir par l'interprétation. Quand l'enseignante révèle la conclusion, elle reprend l'initiative du sens : la relation enseignante–savoir devient plus marquée. Les discussions auraient soutenu une lecture socioconstructiviste si les élèves avaient confronté leurs preuves et nuancé leur compréhension.",
+      "Les élèves relèvent des différences, mais choisissent peu leurs indices et ne défendent presque plus d'hypothèses. On risque d'évaluer une comparaison littérale plutôt que la capacité à produire et ajuster une interprétation appuyée sur le texte. Repérer une différence peut nourrir l'enquête sans suffire à l'accomplir.",
+      "On peut retenir A et B : A montre la comparaison des versions, mais pas nécessairement l'argumentation; ajouter « que change cette différence dans ton interprétation? » le renforcerait. B permet de voir interprétation, indices et nuance; on peut ajouter un critère de pertinence des preuves. C, si choisi, renseigne sur la qualité des échanges, sans démontrer à lui seul la lecture interprétative.",
+      "Je ferais défendre deux interprétations appuyées chacune par des indices choisis par les élèves avant de les confronter. La classe discuterait ce qui rend une lecture plausible, puis chacun pourrait nuancer sa position. Des versions audio et des extraits numérotés soutiendraient l'accès, sans sélectionner les preuves à la place des élèves. Une alternative serait un carnet d'hypothèses avant et après la discussion."
+    ]},
+  scientifique:{name:"C · L'eau dans les sols",kind:"Investigation scientifique",description:
+    "<h3>C · L'eau dans les sols</h3><p>En 6e année, la classe se demande : <strong>« L'eau traverse-t-elle tous les sols à la même vitesse? »</strong> Deux échantillons sont disponibles : du sable et de la terre de jardin. Les élèves proposent ce qu'il faudrait garder identique pour comparer les résultats : quantité de sol, volume d'eau, récipient et manière de mesurer le temps.</p><p>Pour faciliter l'organisation, l'enseignante remet ensuite <strong>un protocole entièrement détaillé</strong> et le même tableau à remplir à tous les groupes. Les élèves observent le passage de l'eau; certains obtiennent des temps différents. Pressée, l'enseignante annonce que le sable laisse toujours passer l'eau plus vite, sans examiner les écarts entre les essais ni les conditions expérimentales.</p><p><strong>Trois outils d'évaluation :</strong> (A) une liste de vérification du matériel utilisé; (B) un tableau des temps mesurés; (C) une réponse individuelle « Que suggèrent nos données et quelles limites faut-il considérer? ».</p>",
+    models:[
+      "La situation vise une investigation scientifique : une question testable est posée et les élèves proposent des variables à contrôler. Le protocole ensuite imposé réduit leur latitude de conception; l'affirmation finale sans analyse des écarts limite l'interprétation scientifique.",
+      "Quand les élèves discutent des variables, la relation élèves–savoir est très visible : ils construisent les conditions d'un test valide. Le protocole et la conclusion fournis renforcent ensuite l'initiative enseignante–savoir. Les échanges d'équipe pourraient soutenir un travail socioconstructiviste de mise à l'épreuve des hypothèses, à condition de revenir aux données.",
+      "Les élèves réfléchissent d'abord aux conditions de comparaison, puis réalisent une manipulation largement prescrite et consignent des temps. Ils n'ont plus à choisir le protocole, ni à expliquer les différences entre résultats. L'apprentissage menacé est le raisonnement sur la validité de l'essai et l'inférence à partir des observations.",
+      "On peut choisir B et C : B conserve des données utiles, mais sans explication ne montre pas l'inférence; ajouter les conditions de chaque essai aiderait à juger les écarts. C permet de relier conclusion, mesures et limites; une question sur les variables contrôlées la renforcerait. A, si choisi, vérifie l'organisation matérielle, pas la compréhension du phénomène.",
+      "Je laisserais chaque groupe proposer un protocole à partir de critères communs, puis comparerais les choix avant la collecte. Après les essais, les élèves examineraient leurs temps, leurs écarts et la portée de la conclusion. Un tableau structuré et du matériel adapté soutiendraient l'accès sans livrer l'explication. Une alternative serait de comparer deux protocoles imparfaits avant de concevoir le sien."
+    ]}
+};
+
+var select=document.getElementById("revision-cas-select");
+var vignette=document.getElementById("revision-vignette");
+var champs=Array.prototype.slice.call(document.querySelectorAll("[data-revision-reponse]"));
+var coche=Array.prototype.slice.call(document.querySelectorAll("[data-revision-verif]"));
+var modeles=Array.prototype.slice.call(document.querySelectorAll("[data-modele]"));
+var message=document.getElementById("revision-message");
+var storagePrefix="3pdg260_famille2a_revision_v1_";
+var sessionFallback={};
+function cle(k){return storagePrefix+k;}
+function load(k){try{return localStorage.getItem(cle(k));}catch(e){return sessionFallback[k]||null;}}
+function save(k,val){try{localStorage.setItem(cle(k),val);}catch(e){sessionFallback[k]=val;}}
+function remove(k){try{localStorage.removeItem(cle(k));}catch(e){delete sessionFallback[k];}}
+function storeCase(){var k=select.value;save(k,JSON.stringify({answers:champs.map(function(t){return t.value;}),checked:coche.map(function(t){return t.checked;})}));}
+function compteur(){var n=coche.filter(function(box){return box.checked;}).length;document.getElementById("revision-compteur").textContent=n+" critère"+(n>1?"s":"")+" sur 15 vérifié"+(n>1?"s":"")+" pour ce cas";}
+function renderCase(){var k=select.value;var cas=CASES[k];vignette.innerHTML=cas.description;var saved={};try{saved=JSON.parse(load(k)||"{}");}catch(e){saved={};}champs.forEach(function(t,i){t.value=saved.answers&&typeof saved.answers[i]==="string"?saved.answers[i]:"";});coche.forEach(function(b,i){b.checked=!!(saved.checked&&saved.checked[i]);});modeles.forEach(function(p,i){p.textContent=cas.models[i];p.closest("details").open=false;});message.textContent="";compteur();}
+select.addEventListener("change",renderCase);
+champs.forEach(function(t){t.addEventListener("input",storeCase);});
+coche.forEach(function(b){b.addEventListener("change",function(){storeCase();compteur();});});
+document.getElementById("revision-effacer").addEventListener("click",function(){if(!window.confirm("Effacer les cinq réponses et les 15 cases cochées pour ce cas seulement?"))return;remove(select.value);renderCase();message.textContent="Les réponses de ce cas ont été effacées. Les autres cas sont conservés.";});
+document.getElementById("revision-export").addEventListener("click",function(){var cas=CASES[select.value];var titres=["Reconnaître et justifier","Relier aux fondements","Analyser l'activité cognitive","Évaluer deux outils","Décision professionnelle et CUA"];var lignes=["3PDG260 · Famille 2a · Guide de révision",cas.name,"Réponses personnelles (elles n'ont pas été transmises)",""];champs.forEach(function(t,i){lignes.push((i+1)+". "+titres[i],t.value.trim()||"[Aucune réponse]","");});lignes.push("Autoévaluation : "+coche.filter(function(b){return b.checked;}).length+" / 15 critères cochés");var blob=new Blob(["\ufeff"+lignes.join("\n")],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="3PDG260_famille2a_revision_"+select.value+".txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);message.textContent="Vos réponses ont été préparées pour le téléchargement.";});
+renderCase();
+
+var menu=document.querySelector("nav.menu"),mobile=document.getElementById("mobile-menu");
+mobile.addEventListener("click",function(){var opened=menu.classList.toggle("ouvert");mobile.setAttribute("aria-expanded",opened?"true":"false");});
+document.querySelectorAll("nav.menu a").forEach(function(link){link.addEventListener("click",function(){menu.classList.remove("ouvert");mobile.setAttribute("aria-expanded","false");});});
+var links=Array.prototype.slice.call(document.querySelectorAll("nav.menu a[href^='#']"));
+function progression(){var total=document.documentElement.scrollHeight-window.innerHeight;var p=total>0?Math.min(100,Math.max(0,100*window.scrollY/total)):100;document.getElementById("progression-barre").style.width=p+"%";var current="accueil";document.querySelectorAll("main section[id]").forEach(function(s){if(s.getBoundingClientRect().top<=180)current=s.id;});links.forEach(function(a){var active=a.getAttribute("href")==="#"+current;a.classList.toggle("actif",active);if(active)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});}
+window.addEventListener("scroll",progression,{passive:true});window.addEventListener("resize",progression);progression();
+})();
+</script>
+</body>
+</html>
